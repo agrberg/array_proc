@@ -1,8 +1,12 @@
 Overview
 --------
 
-array_proc adds the to_proc method to the Ruby Array class. This turns the array and its contents to procs to be called on an object.
-This is useful for being able to send multiple method calls to a single object. My primary usage of this is passing a proc array into a map call to quickly see values or results on an array of objects via object.map(&[:method_1, method_2]) 
+**array_proc** adds the `to_proc` method to the Ruby Array class. This turns the array and its contents to procs which are called independently on an object.
+
+This allows you to send multiple method calls to a single object. My primary usage of this is passing a proc array into `map` to quickly see values or results on an array of objects like
+
+    my_array_of_objects.map(&[:method_1, :method_2])
+      # => [[object_1.method_1, object_1.method_2], [object_2.method_1, object_2.method_2], ...]
 
 Setup & Installation
 --------------------
@@ -11,14 +15,15 @@ Install with `[sudo] gem install array_proc`
 
 Include it in your project's `Gemfile`:
 
-``` ruby
-gem 'array_proc'
-```
+    gem 'array_proc', '~> 1.0'
 
 License
 ---------
 
-This is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License Version 2 as published by the Free Software Foundation: www.gnu.org/copyleft/gpl.html
+MIT: http://rem.mit-license.org
+
+Errata
+------
 
 This is my second gem and a super tiny one at that. I use this method all the time while in irb or the rails console. This is a nice way to avoid having to write this method in every project I use and simply just add a gem. Also, I thought the community might like it and find it useful.
 
