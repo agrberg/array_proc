@@ -8,4 +8,7 @@ Gem::Specification.new do |s|
   s.email       = 'aarongrosenberg@gmail.com'
   s.files       = ['lib/array_proc.rb']
   s.homepage    = 'https://github.com/LtCmdDudefellah/array_proc'
+
+  s.add_development_dependency 'rspec', '~> 2.0', '>= 2.0.0'
+  s.add_development_dependency 'simplecov', '~> 0.8', '>= 0.8.0'
 end
