@@ -1,4 +1,4 @@
-`Array#to_proc`
+`Array#to_proc` [![Build Status](https://travis-ci.org/agrberg/array_proc.svg?branch=master)](https://travis-ci.org/agrberg/array_proc)
 ===============
 
 Overview
