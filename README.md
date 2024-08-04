@@ -1,35 +1,42 @@
-`Array#to_proc` [![Build Status](https://travis-ci.org/agrberg/array_proc.svg?branch=master)](https://travis-ci.org/agrberg/array_proc)
+`Array#to_proc`
 ===============
 
-Overview
---------
+`array_proc` extends Ruby's `Array` class with a `to_proc` method, allowing you to call multiple methods on each element of an enumerable using the `&` shorthand syntax.
 
-`array_proc` adds the `to_proc` method to the Ruby `Array` class. This turns the array's contents into individual `proc`s which are each called on an object.
+```ruby
+objects.map(&[:method_1, :method_2])
 
-This allows you to send multiple method calls to a single object. Example usage: passing a proc array into `map` to quickly see values or results on an array of objects like
+# is equivalent to the more verbose
 
-```
-my_array_of_objects.map(&[:method_1, :method_2])
-  # => [
-         [object_1.method_1, object_1.method_2],
-         [object_2.method_1, object_2.method_2],
-         ...
-       ]
+objects.map { |element| [element.method_1, element.method_2] }
 ```
 
-Setup & Installation
---------------------
+### Example
 
-Include it in your project's `Gemfile`:
+Examining properties of numbers
 
-    gem 'array_proc'
-
-License
----------
-
-MIT: http://rem.mit-license.org
+```ruby
+[0, 5].map(&[:zero?, :even?])
+  # => [[true, true], [false, false]]
+```
 
 Errata
 ------
 
-This is the second small gem I published. I use this method in `irb` or the rails console to inspect objects. Like it's cousin [`string_proc`](https://github.com/agrberg/string_proc) it is not intended for production code as it's non-idiomatic Ruby.
+Similar to its counterpart, [`string_proc`](https://github.com/agrberg/string_proc), I recommend caution using this in production code. It's non-idiomatic Ruby and may cause more confusion than convenience. However, it can be a valuable tool for exploring and debugging objects in a REPL. For that reason, I often include it in my `Gemfile` with `require: false` ensuring that it won't be unintentionally used in code without explicitly requiring it via `require 'array_proc'`.
+
+This is one of the first small gems I published, as it provides functionality that I find useful across multiple projects. By packaging it as a gem, I can avoid duplicating the code and reduce the need for repetitive testing in each project.
+
+Installation
+--------------------
+
+Include it in your project's `Gemfile`:
+
+```ruby
+gem 'array_proc'
+```
+
+License
+---------
+
+MIT: https://mit-license.org/
