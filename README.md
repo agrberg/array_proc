@@ -1,6 +1,9 @@
 `Array#to_proc`
 ===============
 
+[![CI](https://github.com/agrberg/array_proc/actions/workflows/ci.yml/badge.svg)](https://github.com/agrberg/array_proc/actions/workflows/ci.yml)
+[![Gem Version](https://badge.fury.io/rb/array_proc.svg)](https://badge.fury.io/rb/array_proc)
+
 `array_proc` extends Ruby's `Array` class with a `to_proc` method, allowing you to call multiple methods on each element of an enumerable using the `&` shorthand syntax.
 
 ```ruby
